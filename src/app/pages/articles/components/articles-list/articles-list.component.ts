@@ -11,6 +11,7 @@ import { Subscription } from 'rxjs';
 export class ArticlesListComponent implements OnInit, OnDestroy {
   articles: Article[] = [];
   articleSubscription: Subscription | undefined;
+  userId!:string
 
   constructor(private articleService: ArticleService) {}
 
