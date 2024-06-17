@@ -9,7 +9,7 @@ import { jwtDecode } from 'jwt-decode';
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:3001/api/users';
+  private apiUrl = 'https://cms-backend-6p7i.onrender.com/api/users';
 
   constructor(private http: HttpClient, private router: Router) {}
 
