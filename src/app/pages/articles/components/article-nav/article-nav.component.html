@@ -1,0 +1,67 @@
+<nav class="bg-gray-800">
+  <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+    <div class="relative flex h-16 items-center justify-between">
+
+      <!-- Mobile menu button -->
+      <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+        <button type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+          <span class="absolute -inset-0.5"></span>
+          <span class="sr-only">Open main menu</span>
+          <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" *ngIf="!mobileMenuOpen">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+          <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" *ngIf="mobileMenuOpen">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Logo -->
+      <div class="flex flex-shrink-0 items-center">
+        <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+      </div>
+
+      <!-- Menu items -->
+      <div class="hidden sm:ml-6 sm:block">
+        <div class="flex space-x-4">
+          <a routerLink="/" routerLinkActive="bg-gray-900 text-white" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page" routerLink="../">Dashboard</a>
+
+        </div>
+      </div>
+
+      <!-- add new article -->
+      <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+    <button title="Add New" class="group cursor-pointer outline-none hover:rotate-90 duration-300" [routerLink]="['../create']">
+      <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" viewBox="0 0 24 24" class="stroke-red-400 fill-none group-hover:fill-red-800 group-active:stroke-red-200 group-active:fill-red-600 group-active:duration-0 duration-300">
+        <path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" stroke-width="1.5"></path>
+        <path d="M8 12H16" stroke-width="1.5"></path>
+        <path d="M12 16V8" stroke-width="1.5"></path>
+      </svg>
+    </button>
+
+      
+        <div class="relative ml-3">
+          <button class="Btn">
+
+            <div class="sign"><svg viewBox="0 0 512 512">
+                <path d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"></path>
+              </svg></div>
+
+            <div class="text" (click)="logout()">Logout</div>
+          </button>
+
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div class="sm:hidden" id="mobile-menu" *ngIf="mobileMenuOpen">
+    <div class="space-y-1 px-2 pb-3 pt-2">
+      <a routerLink="/" routerLinkActive="bg-gray-900 text-white" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" aria-current="page">Dashboard</a>
+
+    </div>
+  </div>
+</nav>

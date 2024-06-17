@@ -8,11 +8,14 @@ import {
 import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
 import Swal from 'sweetalert2'; 
+import { AuthService } from '../services/auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ErrorHandlerInterceptor implements HttpInterceptor {
+  constructor(private authService: AuthService) {}
+
   intercept(
     req: HttpRequest<unknown>,
     next: HttpHandler
@@ -20,6 +23,9 @@ export class ErrorHandlerInterceptor implements HttpInterceptor {
     return next.handle(req).pipe(
       catchError((err: HttpErrorResponse) => {
         console.warn('Error during API call:', err);
+        if (err.status === 401) {
+          this.authService.logout(); // Log out the user if the error is unauthorized
+        }
         Swal.fire(err.statusText, err.error.message, 'error');
         return throwError(() => err);
       })
