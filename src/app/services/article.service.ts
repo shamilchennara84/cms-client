@@ -7,7 +7,7 @@ import { ArticleDetail } from '../models/article.model';
   providedIn: 'root',
 })
 export class ArticleService {
-  private apiUrl = 'http://localhost:3001/api/articles'; // Replace with your actual API URL
+  private apiUrl = 'https://cms-backend-6p7i.onrender.com/api/articles'; // Replace with your actual API URL
   
   constructor(private http: HttpClient) {}
   
