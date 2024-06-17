@@ -5,6 +5,7 @@ import { ArticlesListComponent } from './components/articles-list/articles-list.
 import { authGuard } from '../../guards/auth.guard';
 import { ArticlesDetailComponent } from './components/articles-detail/articles-detail.component';
 import { ArticlePageComponent } from './components/article-page/article-page.component';
+import { ArticleCreateComponent } from './components/article-create/article-create.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'view', pathMatch: 'full' },
@@ -29,6 +30,11 @@ const routes: Routes = [
         canActivate: [authGuard],
       },
     ],
+  },
+  {
+    path: 'create',
+    component: ArticleCreateComponent,
+    canActivate: [authGuard],
   },
 ];
 

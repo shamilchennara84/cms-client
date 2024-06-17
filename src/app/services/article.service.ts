@@ -8,14 +8,19 @@ import { ArticleDetail } from '../models/article.model';
 })
 export class ArticleService {
   private apiUrl = 'http://localhost:3001/api/articles'; // Replace with your actual API URL
-
+  
   constructor(private http: HttpClient) {}
-
+  
   getArticles(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl);
   }
-
+  
   getArticleById(id: string): Observable<ArticleDetail> {
     return this.http.get<any>(`${this.apiUrl}/${id}`);
+  }
+  
+  createArticle(title: string, content: string): Observable<any> {
+    const articleData = { title, content };
+    return this.http.post<any>(this.apiUrl, articleData);
   }
 }
