@@ -1,22 +1,31 @@
-<div class="max-w-md mx-auto p-7 overflow-hidden rounded-lg shadow-xl dark:bg-gray-900 dark:text-gray-300 h-[70vh] mt-5 space-y-4">
-  <!-- Centering Wrapper -->
-  <div class="flex flex-col items-center justify-center h-full bg-white dark:bg-gray-800">
-    <article class="w-full max-w-md bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 space-y-4">
-      <h2 class="text-3xl font-bold mb-4 dark:text-gray-100">
-        {{articleData.title}}
-      </h2>
-      <p class="text-gray-700 dark:text-gray-400">
-        {{ articleData.content }}
-      </p>
-
-      <div class="flex flex-col items-start space-y-2">
-        <h3 class="text-xl font-semibold dark:text-gray-300">
-          {{ articleData.authorDetails.name }}
-        </h3>
-        <p class="text-base text-gray-500 dark:text-gray-300">
-          {{ articleData.date | date:'dd/MM/yyyy' }}
-        </p>
+<div class="max-w-xl mx-auto w-full lg:max-w-2xl flex flex-col lg:flex-row mt-7">
+  <div class="h-56 lg:h-80 w-full lg:w-1/2 bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden" style="background-image: url('https://picsum.photos/200/300')" title="{{ articleData.title }}">
+  </div>
+  <div class="w-full lg:w-1/2 border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-6 flex flex-col justify-between leading-normal hover:bg-gray-100 transition duration-300 ease-in-out">
+    <div class="mb-10">
+      <!-- Article Title -->
+      <div class="text-black font-bold text-lg mb-3 w-auto max-w-xs whitespace-nowrap overflow-hidden text-ellipsis">
+        {{ articleData.title }}
       </div>
-    </article>
+      <!-- Article Date -->
+      <p class="text-sm text-grey-dark flex items-center">
+        <svg class="text-grey w-3 h-3 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+          <path d="M4 8V6a6 6 0 1 1 12 0v2h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-8c0-1.1.9-2 2-2h1zm5 6.73V17h2v-2.27a2 2 0 1 0-2 0zM7 6v2h6V6a3 3 0 0 0-6 0z" />
+        </svg>
+        Published on
+        {{ articleData.date | date:'dd/MM/yyyy' }}
+      </p>
+      <!-- Article Content -->
+      {{ articleData.content }}
+
+    </div>
+    <!-- Author Information -->
+    <div class="flex items-center mt-6">
+      <img class="w-12 h-12 rounded-full mr-6" src="https://picsum.photos/200" alt="Author Avatar">
+      <div class="text-base">
+        <p class="text-black leading-none">Author Name</p>
+        <p class="text-grey-dark">Date Published</p>
+      </div>
+    </div>
   </div>
 </div>
