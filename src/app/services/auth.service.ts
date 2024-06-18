@@ -4,12 +4,13 @@ import { Router } from '@angular/router';
 import { map, Observable } from 'rxjs';
 import {  AuthResponse } from '../models/auth.model'; // Assuming there's a model for registration response
 import { jwtDecode } from 'jwt-decode';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'https://cms-backend-6p7i.onrender.com/api/users';
+  private apiUrl = `${environment.apiUrl}users`;
 
   constructor(private http: HttpClient, private router: Router) {}
 

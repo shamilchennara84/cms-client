@@ -2,12 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ArticleDetail } from '../models/article.model';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ArticleService {
-  private apiUrl = 'https://cms-backend-6p7i.onrender.com/api/articles'; // Replace with your actual API URL
+  private apiUrl = `${environment.apiUrl}articles`; 
 
   constructor(private http: HttpClient) {}
 

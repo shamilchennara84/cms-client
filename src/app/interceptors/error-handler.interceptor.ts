@@ -24,6 +24,11 @@ export class ErrorHandlerInterceptor implements HttpInterceptor {
       catchError((err: HttpErrorResponse) => {
         console.warn('Error during API call:', err);
         if (err.status === 401) {
+             Swal.fire(
+               'Session expired',
+               'Your session has expired. Please login again.',
+               'warning'
+             );
           this.authService.logout(); // Log out the user if the error is unauthorized
         }
         Swal.fire(err.statusText, err.error.message, 'error');
