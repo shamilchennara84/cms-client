@@ -6,8 +6,14 @@ import { Component, Input } from '@angular/core';
   styleUrl: './article.component.scss',
 })
 export class ArticleComponent {
-  @Input() articleId!:string;
+  @Input() articleId!: string;
   @Input() title!: string;
   @Input() date!: string;
   @Input() content!: string;
+
+  showFullContent = false;
+
+  toggleContent() {
+    this.showFullContent = !this.showFullContent;
+  }
 }
